@@ -38,11 +38,15 @@ router.route('/company')
   .post(CompanyController.postCompany)
   .get(CompanyController.getCompany)
 
+router.route('/company/:company_id')
+  .delete(CompanyController.deleteCompany);
+
 
 // Create endpoint handlers for /companyasset
 router.route('/companyasset')
   .post(CompanyAssetController.postCompanyAsset)
   .get(CompanyAssetController.getCompanyAsset)
+
 
 
 app.use('/',router);

@@ -29,3 +29,14 @@ exports.getCompany = function(req,res){
         res.json(companies);
     })
 }
+
+
+exports.deleteCompany = function(req, res) {
+    // Use the Beer model to find a specific beer and remove it
+    Company.findByIdAndRemove(req.params.company_id, function(err) {
+      if (err)
+        res.send(err);
+  
+      res.json({ message: 'Company details deleted' });
+    });
+  };
