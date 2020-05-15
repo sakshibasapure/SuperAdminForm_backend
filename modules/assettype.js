@@ -3,20 +3,19 @@ var mongoose = require('mongoose')
 
 // Define our AssetType schema
 var AssetTypeSchema = new mongoose.Schema({
-   
-    assettypename:{
+    Assetname:{
         type: String,
         unique: true,
         required: true
     }, 
-    description:{
+    Description:{
         type: String,
         required: true
     },
-    assettypes:{
-        type: Number,
-        required: true
-    },
+    type:{
+        type: Number
+        //required: true
+    }
 });
 
 module.exports = mongoose.model('AssetType', AssetTypeSchema)

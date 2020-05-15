@@ -9,11 +9,32 @@ var CompanyAssetSchema = new mongoose.Schema({
         unique: true,
         required: true
     }, 
-    description:{
+    assetdesc:{
+        type: String,
+        required: true
+    },
+    UnitRate: {
+        type: Number,
+        required: true
+    },
+    KVaRate: {
+        type: Number,
+        required: true
+    },
+    KwRate: {
+        type: Number,
+        required: true
+    },
+    assettypename: {
+        type: String,
+        required: true
+    },
+    companyID: {
         type: String,
         required: true
     }
 });
+
 
 module.exports = mongoose.model('CompanyAsset', CompanyAssetSchema)
 

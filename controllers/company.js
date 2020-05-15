@@ -12,7 +12,7 @@ exports.postCompany = function(req,res){
             res.status(500).json({ message : "Company not Registered"})
         }
         else{
-            res.json({ message : "Company Registered"})
+            res.status(200).json({ message : "Company Registered"})
             console.log(CompanyData)
         }
     })
@@ -32,7 +32,7 @@ exports.getCompany = function(req,res){
 
 
 exports.deleteCompany = function(req, res) {
-    // Use the Beer model to find a specific beer and remove it
+    // Use the Company model to find a specific company and remove it
     Company.findByIdAndRemove(req.params.company_id, function(err) {
       if (err)
         res.send(err);

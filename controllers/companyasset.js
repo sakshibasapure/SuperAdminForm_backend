@@ -15,7 +15,8 @@ exports.postCompanyAsset = function(req,res){
             res.status(500).json({ message : "Company Asset not Registered"})
         }
         else{
-            res.json({ message : "Company Asset Registered"})
+            
+            res.status(200).json({ message : "Company Asset Registered"})
             console.log(CompanyAssetData)
         }
     })

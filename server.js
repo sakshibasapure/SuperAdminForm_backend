@@ -11,7 +11,8 @@ var CompanyAssetController = require('./controllers/companyasset')
 // Connect to the beerlocker MongoDB
 mongoose.connect('mongodb://localhost:27017/SuperAdminForm', {
     useNewUrlParser: true, 
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
 })
 
 var connection = mongoose.connection
