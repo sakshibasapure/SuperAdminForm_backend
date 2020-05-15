@@ -6,10 +6,13 @@ var CompanyAssetSchema = new mongoose.Schema({
    
     assetname:{
         type: String,
-        unique: true,
         required: true
     }, 
     assetdesc:{
+        type: String,
+        required: true
+    },
+    companyID: {
         type: String,
         required: true
     },
@@ -28,11 +31,8 @@ var CompanyAssetSchema = new mongoose.Schema({
     assettypename: {
         type: String,
         required: true
-    },
-    companyID: {
-        type: String,
-        required: true
     }
+
 });
 
 

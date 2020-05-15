@@ -3,7 +3,7 @@ var mongoose = require('mongoose')
 
 // Define our AssetType schema
 var AssetTypeSchema = new mongoose.Schema({
-    Assetname:{
+    Assettypename :{
         type: String,
         unique: true,
         required: true
@@ -13,7 +13,7 @@ var AssetTypeSchema = new mongoose.Schema({
         required: true
     },
     type:{
-        type: Number
+        type: String
         //required: true
     }
 });
