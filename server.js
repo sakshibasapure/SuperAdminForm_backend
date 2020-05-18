@@ -4,9 +4,13 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var mongoose = require('mongoose');
 
-var AssetTypeController = require('./controllers/assettype')
-var CompanyController = require('./controllers/company')
-var CompanyAssetController = require('./controllers/companyasset')
+var CompanyRouter = require('./controllers/companyRouter')
+var AssetRouter = require('./controllers/assetRouter')
+var AssettypeRouter = require('./controllers/assettypeRouter')
+
+var Companies = require('./modules/company');
+var Assets = require('./modules/companyasset')
+var Assettypes = require('./modules/assettype')
 
 // Connect to the beerlocker MongoDB
 mongoose.connect('mongodb://localhost:27017/SuperAdminForm', {
@@ -28,30 +32,15 @@ app.use(cors());
 // Create our Express router
 var router = express.Router();
 
-// Create endpoint handlers for /assettype
-router.route('/assettype')
-  .post(AssetTypeController.postAssetType)
-  .get(AssetTypeController.getAssetType)
-
-
-// Create endpoint handlers for /company
-router.route('/company')
-  .post(CompanyController.postCompany)
-  .get(CompanyController.getCompany)
-
-router.route('/company/:company_id')
-  .delete(CompanyController.deleteCompany);
-
-
-// Create endpoint handlers for /companyasset
-router.route('/companyasset')
-  .post(CompanyAssetController.postCompanyAsset)
-  .get(CompanyAssetController.getCompanyAsset)
-
-
+app.use('/company', CompanyRouter);
+app.use('/companyasset', AssetRouter);
+app.use('/assettype', AssettypeRouter);
 
 app.use('/',router);
 
 app.listen(PORT, function(){
   console.log("Server running on localhost "+ PORT)
 });
+
+
+module.exports = app;
