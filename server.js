@@ -8,15 +8,17 @@ var CompanyRouter = require('./controllers/companyRouter')
 var AssetRouter = require('./controllers/assetRouter')
 var AssettypeRouter = require('./controllers/assettypeRouter')
 var JoinRouter = require('./controllers/join')
+var RegisterRouter=require('./controllers/registerRouter')
+
 
 var Companies = require('./modules/company');
 var Assets = require('./modules/companyasset')
 var Assettypes = require('./modules/assettype')
+var Registers=require('./modules/register')
 
 
 
-
-// Connect to the beerlocker MongoDB
+// Connect to superadminform MongoDB
 mongoose.connect('mongodb://localhost:27017/SuperAdminForm', {
     useNewUrlParser: true, 
     useUnifiedTopology: true,
@@ -39,6 +41,7 @@ var router = express.Router();
 app.use('/company', CompanyRouter);
 app.use('/companyasset', AssetRouter);
 app.use('/assettype', AssettypeRouter);
+app.use('/register',RegisterRouter);
 app.use('/join', JoinRouter);
 
 app.use('/',router);
