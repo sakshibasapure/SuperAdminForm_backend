@@ -1,13 +1,14 @@
 // Load required packages
 var mongoose = require('mongoose')
 //require('mongoose-type-email');
+//var Assets = require('./modules/companyasset')
 
 // Define our Company schema
 var CompanySchema = new mongoose.Schema({
    
     companyname:{
         type: String,
-        unique: true,
+        //unique: true,
         required: true
     }, 
     email:{
@@ -20,4 +21,6 @@ var CompanySchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Company',CompanySchema)
+
+var Companies = mongoose.model('Company',CompanySchema)
+module.exports = Companies;

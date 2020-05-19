@@ -12,21 +12,12 @@ var CompanyAssetSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    companyID: {
+    companyName: {
         type: String,
         required: true
     },
-    UnitRate: {
-        type: Number,
-        required: true
-    },
-    KVaRate: {
-        type: Number,
-        required: true
-    },
-    KwRate: {
-        type: Number,
-        required: true
+    companyId: {
+        type: String
     },
     assettypename: {
         type: String,
@@ -35,6 +26,7 @@ var CompanyAssetSchema = new mongoose.Schema({
 
 });
 
+var Assets = mongoose.model('CompanyAsset', CompanyAssetSchema)
+module.exports = Assets
 
-module.exports = mongoose.model('CompanyAsset', CompanyAssetSchema)
 

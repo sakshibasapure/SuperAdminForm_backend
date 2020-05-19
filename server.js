@@ -7,10 +7,14 @@ var mongoose = require('mongoose');
 var CompanyRouter = require('./controllers/companyRouter')
 var AssetRouter = require('./controllers/assetRouter')
 var AssettypeRouter = require('./controllers/assettypeRouter')
+var JoinRouter = require('./controllers/join')
 
 var Companies = require('./modules/company');
 var Assets = require('./modules/companyasset')
 var Assettypes = require('./modules/assettype')
+
+
+
 
 // Connect to the beerlocker MongoDB
 mongoose.connect('mongodb://localhost:27017/SuperAdminForm', {
@@ -35,6 +39,7 @@ var router = express.Router();
 app.use('/company', CompanyRouter);
 app.use('/companyasset', AssetRouter);
 app.use('/assettype', AssettypeRouter);
+app.use('/join', JoinRouter);
 
 app.use('/',router);
 

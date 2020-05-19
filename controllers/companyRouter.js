@@ -4,7 +4,9 @@ var mongoose =  require('mongoose');
 
 var companyRouter = express.Router();
 
+
 var Companies = require('../modules/company')
+//var Assets = require('../modules/companyasset')
 companyRouter.use(bodyParser.json())
 
 //Creating endpoint for /companies
@@ -85,16 +87,19 @@ companyRouter.route('/:companyId')
 .delete((req, res) => {
     Companies.findByIdAndRemove(req.params.companyId)
     .then((resp) => {
-        res.json({ message: 'Company details deleted' });
+        res.json({ message: 'Company details deleted'});
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
         res.json(resp);
+        //Assets.remove({})
+        
     })
     .catch((err) => {
         res.send({message: 'Company details not deleted'})
     });
     
 });
+
 
 
 module.exports = companyRouter
