@@ -47,7 +47,7 @@ assetRouter.route('/')
     })
     .catch((err) => {
         res.statusCode = 500;
-        resjson({ message : "Assets not deleted"})
+        res.json({ message : "Assets not deleted"})
     });
 });
 

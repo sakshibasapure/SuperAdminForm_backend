@@ -4,7 +4,7 @@ var mongoose =  require('mongoose');
 
 //var Companies = require('../modules/company');
 var Assets = require('../modules/companyasset')
-var Assettypes = require('../modules/assettype');
+//var Assettypes = require('../modules/assettype');
 
 var joinRouter = express.Router();
 
@@ -36,12 +36,8 @@ joinRouter.route('/')
           },
           {    
              $unwind:"$CompanyDetails" 
-          },
-          //{ $group: { _id: "$assetname", mergedAssetTypes: { $mergeObjects: "$AssetTypeDetails" } } }
-          //{$group: { _id: companyName }}
+          }
         ]
-          //use $project for specific parameters to display
-
      ]).exec((err, results) => {
         if (err) throw err;
 
@@ -52,5 +48,42 @@ joinRouter.route('/')
 })
 
 
+joinRouter.route('/:companyName')
+.get(function(req, res){
+  var name = req.params.companyName;
+
+  var query = [{
+                $lookup:
+                  {
+                    from: "companies",
+                    localField: "companyName",
+                    foreignField: "companyname",
+                    as: "CompanyDetails"
+                  }
+                },
+                {    
+                  $unwind:"$CompanyDetails" 
+                },
+                { 
+                  $match : { 'companyName' : name } 
+                },
+                {
+                  $project: {
+                    assetname: 1,
+                    assetdesc: 1,
+                    assettypename: 1
+                  }
+                }
+              ]
+  Assets.aggregate(query).exec((err, results) => {
+    if (err) throw err;
+
+    console.log(results)
+    res.send(results);
+ })
+})
+
+
 module.exports = joinRouter
+
 

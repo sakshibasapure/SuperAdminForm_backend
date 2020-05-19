@@ -49,7 +49,7 @@ companyRouter.route('/')
     })
     .catch((err) => {
         res.statusCode = 500;
-        resjson({ message : "Companies not deleted"})
+        res.json({ message : "Companies not deleted"})
     });
 });
 
