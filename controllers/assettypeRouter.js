@@ -30,7 +30,7 @@ assettypeRouter.route('/')
     })
     .catch((err) => {
         res.statusCode = 500;
-        resjson({ message : "Asset type not Registered"})
+        res.json({ message : "Asset type not Registered"})
     });
 })
 .put((req, res) => {

@@ -44,7 +44,6 @@ app.use('/assettype', AssettypeRouter);
 app.use('/register',RegisterRouter);
 app.use('/join', JoinRouter);
 
-app.use('/',router);
 
 app.listen(PORT, function(){
   console.log("Server running on localhost "+ PORT)

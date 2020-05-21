@@ -29,7 +29,7 @@ joinRouter.route('/')
             $lookup:
               {
                 from: "companies",
-                localField: "companyName",
+                localField: "companyname",
                 foreignField: "companyname",
                 as: "CompanyDetails"
               }
@@ -48,15 +48,15 @@ joinRouter.route('/')
 })
 
 
-joinRouter.route('/:companyName')
+joinRouter.route('/:companyname')
 .get(function(req, res){
-  var name = req.params.companyName;
+  var name = req.params.companyname;
 
   var query = [{
                 $lookup:
                   {
                     from: "companies",
-                    localField: "companyName",
+                    localField: "companyname",
                     foreignField: "companyname",
                     as: "CompanyDetails"
                   }
@@ -65,7 +65,7 @@ joinRouter.route('/:companyName')
                   $unwind:"$CompanyDetails" 
                 },
                 { 
-                  $match : { 'companyName' : name } 
+                  $match : { 'companyname' : name } 
                 },
                 {
                   $project: {

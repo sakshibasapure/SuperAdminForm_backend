@@ -12,11 +12,11 @@ var CompanyAssetSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    companyName: {
+    companyname: {
         type: String,
         required: true
     },
-    companyId: {
+    companyID: {
         type: String
     },
     assettypename: {
@@ -28,5 +28,6 @@ var CompanyAssetSchema = new mongoose.Schema({
 
 var Assets = mongoose.model('CompanyAsset', CompanyAssetSchema)
 module.exports = Assets
+
 
 

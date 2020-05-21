@@ -32,7 +32,7 @@ companyRouter.route('/')
     })
     .catch((err) => {
         res.statusCode = 500;
-        resjson({ message : "Company not Registered"})
+        res.json({ message : "Company not Registered"})
     });
 })
 .put((req, res) => {

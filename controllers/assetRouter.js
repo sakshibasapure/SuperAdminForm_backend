@@ -30,7 +30,7 @@ assetRouter.route('/')
     })
     .catch((err) => {
         res.statusCode = 500;
-        resjson({ message : "Asset not Registered"})
+        res.json({ message : "Asset not Registered"})
     });
 })
 .put((req, res) => {

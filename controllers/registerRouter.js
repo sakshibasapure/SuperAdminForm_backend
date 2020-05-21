@@ -47,7 +47,7 @@ registerRouter.route('/')
     })
     .catch((err) => {
         res.statusCode = 500;
-        resjson({ message : "Registers not deleted"})
+        res.json({ message : "Registers not deleted"})
     });
 });
 
