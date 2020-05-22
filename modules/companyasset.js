@@ -22,6 +22,9 @@ var CompanyAssetSchema = new mongoose.Schema({
     assettypename: {
         type: String,
         required: true
+    },
+    tariffclass: {
+        type: String
     }
 
 });

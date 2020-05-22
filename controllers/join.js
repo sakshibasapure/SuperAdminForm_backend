@@ -2,9 +2,11 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose =  require('mongoose');
 
-//var Companies = require('../modules/company');
+var Companies = require('../modules/company');
 var Assets = require('../modules/companyasset')
-//var Assettypes = require('../modules/assettype');
+var Assettypes = require('../modules/assettype');
+var Registers = require('../modules/register')
+var Tariffs=require('../modules/tariff')
 
 var joinRouter = express.Router();
 
@@ -71,7 +73,8 @@ joinRouter.route('/:companyname')
                   $project: {
                     assetname: 1,
                     assetdesc: 1,
-                    assettypename: 1
+                    assettypename: 1,
+                    tariffclass: 1
                   }
                 }
               ]
@@ -82,7 +85,6 @@ joinRouter.route('/:companyname')
     res.send(results);
  })
 })
-
 
 
 module.exports = joinRouter

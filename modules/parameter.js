@@ -3,7 +3,7 @@ var mongoose = require('mongoose')
 
 // Define our AssetType schema
 var paramSchema = new mongoose.Schema({
-    param_name :{
+    paramname :{
         type: String,
         required: true
     }, 

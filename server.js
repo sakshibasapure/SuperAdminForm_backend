@@ -17,12 +17,17 @@ const bcrypt = require('bcryptjs');
 var mongodb = require('mongodb');
 var mongoClient = mongodb.MongoClient;
 const _ = require('lodash');
+
+
 var CompanyRouter = require('./controllers/companyRouter')
 var AssetRouter = require('./controllers/assetRouter')
 var AssettypeRouter = require('./controllers/assettypeRouter')
 var JoinRouter = require('./controllers/join')
+var Join2Router = require('./controllers/join2')
+var Join3Router = require('./controllers/join3')
 var ParameterRouter = require('./controllers/paramRouter')
 var RegisterRouter = require('./controllers/registerRouter')
+var TariffRouter=require('./controllers/tariffRouter')
 var UserRouter = require('./controllers/userRouter')
 const jwtHelper = require('./config/jwtHelper');
 
@@ -31,6 +36,7 @@ var Companies = require('./modules/company');
 var Assets = require('./modules/companyasset')
 var Assettypes = require('./modules/assettype')
 var Registers = require('./modules/register')
+var Tariffs=require('./modules/tariff')
 var Users = require('./modules/user');
 
 // Connect to the beerlocker MongoDB
@@ -79,12 +85,20 @@ app.use((err, req, res, next) => {
 });
 
 
+
+
+
+
+
 app.use('/company', CompanyRouter);
 app.use('/companyasset', AssetRouter);
 app.use('/assettype', AssettypeRouter);
 app.use('/parameter',ParameterRouter);
 app.use('/register', RegisterRouter)
 app.use('/join', JoinRouter);
+app.use('/join_RegistersPerAssttypes', Join2Router);
+app.use('/join_RegisterParameter', Join3Router);
+app.use('/tariff',TariffRouter)
 app.use('/user',UserRouter);
 
 app.use('/',router);

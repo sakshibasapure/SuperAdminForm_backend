@@ -10,15 +10,28 @@ var RegisterSchema = new mongoose.Schema({
         required: true
     }, 
     regdescr:{
-        //type: mongoose.SchemaTypes.Email, 
+        
         type: String,
-        unique: true,
         required: true
     },
     regfreq:{
-        type: Number,
+        type: String,
         required:true
-        
+    },
+    assettypeID: {
+        type: String,
+        required: true
+    },
+    Assettypename: {
+        type: String,
+        required: true
+    },
+    paramID: {
+        type: String,
+        required: true
+    },
+    paramname: {
+        type: String
     }
 });
 

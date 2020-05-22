@@ -8,19 +8,7 @@ var userSchema = new mongoose.Schema({
         type: String,
         required: 'Full Name can\'t be empty'
     },
-
-    // lastname: {
-    //     type: String,
-    //     required: 'Last Name can\'t be empty'
-    // },
-
-    // username:
-    // {
-    //     type: String,
-    //     required: 'username can\'t be empty',
-    //     unique:true
-    // },
-
+    
     email: {
         type: String,
         required: 'Email can\'t be empty',
